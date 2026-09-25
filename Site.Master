@@ -1,0 +1,87 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PygmaPortfolio.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="img/logo/pygmatour-logo.svg" />
+    <title><%: Page.Title %> - Pygma Tour</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FontAwesome untuk Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    
+    <style>
+        .navbar-brand { display: inline-flex; align-items: center; color: #111 !important; font-weight: 600; letter-spacing: 0; }
+        .navbar-brand img { width: 52px; height: 52px; object-fit: contain; }
+        .navbar-brand span { margin-left: 8px; }
+        .navbar { min-height: 74px; border-top: 1px solid #dfe3e8; border-bottom: 1px solid #dfe3e8; box-shadow: none !important; }
+        .navbar .nav-link { color: #173454; font-size: .78rem; padding: 27px 11px !important; }
+        .navbar .nav-link:hover, .navbar .nav-link:focus { color: #0d6efd; }
+        .portfolio-menu { position: relative; }
+        .portfolio-menu .dropdown-menu { border: 0; border-radius: 0; box-shadow: 0 3px 12px rgba(0, 0, 0, .12); min-width: 160px; padding: 8px 0; }
+        .portfolio-menu .dropdown-item { color: #173454; font-size: .78rem; padding: 11px 12px; }
+        .portfolio-menu .dropdown-item:hover { color: #0d6efd; background: #fff; }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        footer { background: #222; color: #aaa; padding: 30px 0; }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand text-primary" href="Pygmatour.aspx" aria-label="Pygmatour home">
+                    <img src="img/logo/pygmatour-logo.svg" alt="Pygmatour" />
+                    <span>Pygmatour</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="Pygmatour.aspx#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Pygmatour.aspx#contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Pygmatour.aspx">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Pygmatour.aspx#clients">Our Clients</a></li>
+                        <li class="nav-item dropdown portfolio-menu">
+                            <a class="nav-link dropdown-toggle" href="#portfolio" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Pygmatour.aspx#tour-2013">Tour 2013</a></li>
+                                <li><a class="dropdown-item" href="Pygmatour.aspx#tour-2024">Tour 2024</a></li>
+                                <li><a class="dropdown-item" href="Pygmatour.aspx#tour-2025">Tour 2025</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="Pygmatour.aspx#portfolios">Portfolios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center">
+            <div class="container">
+                <p>&copy; <%: DateTime.Now.Year %> - Company Portfolio. Inspired by Pygmatour.</p>
+            </div>
+        </footer>
+    </form>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
