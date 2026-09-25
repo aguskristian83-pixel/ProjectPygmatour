@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pygmatour | Incentive Tour Specialist</title>
+    <link rel="icon" type="image/svg+xml" href="img/logo/pygmatour-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --ink: #102b4e; --blue: #173454; --muted: #53657b; --gold: #f6c453; --paper: #f5f7f4; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--blue); background: #fff; font-family: 'DM Sans', sans-serif; }
+        .navbar { min-height: 82px; border-top: 1px solid #dfe3e8; border-bottom: 1px solid #dfe3e8; background: rgba(255, 255, 255, .97); box-shadow: 0 8px 24px rgba(16, 43, 78, .06); }
+        .navbar-brand { display: inline-flex; align-items: center; color: var(--ink) !important; font-size: 1.05rem; font-weight: 700; }
+        .navbar-brand img { width: 52px; height: 52px; object-fit: contain; }
+        .navbar-brand span { margin-left: 8px; }
+        .brand-lockup { display: flex; flex-direction: column; line-height: 1.05; }
+        .brand-lockup small { margin-top: 5px; color: #8a98a7; font-size: .58rem; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; }
+        .navbar .nav-link { display: inline-flex; align-items: center; min-height: 40px; margin: 0 2px; border-radius: 4px; color: var(--blue); font-size: .78rem; padding: 0 12px !important; transition: background .2s ease, color .2s ease; }
+        .navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .nav-link.active, .dropdown-item:hover { color: #0d6efd; background: #f1f6fb; }
+        .nav-contact { display: inline-flex !important; align-items: center; min-height: 42px !important; margin-left: 12px !important; padding: 0 18px !important; border-radius: 4px !important; background: var(--blue) !important; color: #fff !important; }
+        .nav-contact:hover, .nav-contact:focus { background: #0d6efd !important; color: #fff !important; }
+        .dropdown-menu { border: 0; border-radius: 0; box-shadow: 0 3px 12px rgba(0, 0, 0, .12); }
+        .dropdown-item { color: var(--blue); font-size: .78rem; padding: 11px 12px; }
+        .home-intro { padding-bottom: 64px; background: var(--paper); }
+        .home-hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; background: var(--blue); }
+        .home-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 33, 52, .82), rgba(9, 33, 52, .58) 42%, rgba(9, 33, 52, .12)), url('img/home/home.png') center/cover; }
+        .home-hero::after { content: ''; position: absolute; right: -90px; bottom: -150px; width: 440px; height: 440px; border: 1px solid rgba(246, 196, 83, .35); border-radius: 50%; box-shadow: 0 0 0 28px rgba(246, 196, 83, .05), 0 0 0 56px rgba(246, 196, 83, .04); }
+        .home-hero .container { position: relative; z-index: 1; }
+        .hero-copy { max-width: 620px; color: #fff; padding: 72px 0 110px; }
+        .kicker { color: var(--gold); font-size: .75rem; font-weight: 700; letter-spacing: .16em; margin-bottom: 18px; text-transform: uppercase; }
+        .hero-copy h1 { color: #fff; font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 4.8rem); font-weight: 600; line-height: 1.02; margin-bottom: 22px; max-width: 570px; }
+        .hero-copy p { color: rgba(255, 255, 255, .88); font-size: 1.05rem; line-height: 1.7; max-width: 500px; }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+        .hero-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 21px; border-radius: 3px; font-size: .86rem; font-weight: 600; text-decoration: none; }
+        .action-primary { background: var(--gold); color: var(--blue); }
+        .action-secondary { border: 1px solid rgba(255, 255, 255, .7); color: #fff; }
+        .action-primary:hover, .action-secondary:hover { color: var(--blue); background: #fff; transform: translateY(-2px); }
+        .hero-actions a { transition: transform .2s ease, background .2s ease; }
+        .hero-stats { position: absolute; right: 0; bottom: 34px; display: flex; gap: 28px; color: #fff; }
+        .hero-stat strong { display: block; font-size: 1.45rem; }
+        .hero-stat span { color: rgba(255, 255, 255, .72); font-size: .72rem; }
+        .journey-section { padding: 76px 0 68px; background: #fff; }
+        .section-topline { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+        .section-eyebrow { color: #d49b2c; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        .section-topline h2 { margin: 7px 0 0; color: var(--ink); font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+        .section-link { color: #0d6efd; font-size: .82rem; text-decoration: none; }
+        .destination-card { position: relative; min-height: 230px; overflow: hidden; border-radius: 8px; background: var(--blue); }
+        .destination-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(9, 33, 52, .86), rgba(9, 33, 52, .04) 72%); z-index: 1; }
+        .destination-card img { width: 100%; height: 230px; object-fit: cover; opacity: .9; transition: transform .35s ease; }
+        .destination-card:hover img { transform: scale(1.06); }
+        .destination-copy { position: absolute; z-index: 2; right: 18px; bottom: 16px; left: 18px; color: #fff; }
+        .destination-copy h3 { margin: 0 0 3px; font-size: 1.15rem; }
+        .destination-copy span { color: rgba(255, 255, 255, .75); font-size: .75rem; }
+        .experience-strip { padding: 54px 0; background: var(--blue); color: #fff; }
+        .experience-strip h2 { max-width: 560px; margin: 0; color: #fff; font-family: 'Playfair Display', serif; font-size: 2.1rem; }
+        .experience-strip p { max-width: 560px; margin: 12px 0 0; color: rgba(255, 255, 255, .72); line-height: 1.7; }
+        .experience-badge { display: flex; align-items: center; justify-content: center; width: 112px; height: 112px; margin-left: auto; border: 1px solid rgba(246, 196, 83, .6); border-radius: 50%; color: var(--gold); font-size: .75rem; font-weight: 700; text-align: center; }
+        .background-copy { position: relative; max-width: 900px; margin: 0 auto; padding: 42px 0 0 28px; line-height: 1.65; }
+        .background-copy::before { content: ''; position: absolute; left: 0; top: 48px; width: 4px; height: 68px; border-radius: 4px; background: var(--gold); }
+        .background-copy h2, .section-heading, .contact-title { color: var(--ink); }
+        .background-copy h2 { font-size: 1.5rem; margin: 0 0 2px; }
+        .background-copy h3 { color: #d49b2c; font-size: .8rem; letter-spacing: .13em; margin: 0 0 16px; }
+        .about-page, .portfolio-shell, .contact-page { padding: 72px 0; }
+        .about-page { background: #fff; }
+        .about-page h1, .contact-title { font-size: 2rem; margin-bottom: 34px; font-weight: 600; }
+        .about-page h2, .section-heading { text-align: center; }
+        .section-intro { position: relative; margin-bottom: 36px; }
+        .section-intro::after { content: ''; display: block; width: 46px; height: 3px; margin-top: 16px; border-radius: 4px; background: var(--gold); }
+        .section-intro.centered { text-align: center; }
+        .section-intro.centered::after { margin-right: auto; margin-left: auto; }
+        .section-intro .section-eyebrow { margin-bottom: 8px; }
+        .section-intro h1, .section-intro h2 { margin: 0; color: var(--ink); font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.1; }
+        .section-intro p { max-width: 580px; margin: 14px 0 0; color: var(--muted); line-height: 1.65; }
+        .section-intro.centered p { margin-right: auto; margin-left: auto; }
+        .about-description, .about-point { max-width: 720px; margin: 0 auto 30px; text-align: center; line-height: 1.6; }
+        .about-point h3 { font-size: 1rem; color: var(--ink); }
+        .services { padding: 64px 0; background: #fff; }
+        .about-intro { display: grid; grid-template-columns: 1fr 1.25fr; gap: 72px; align-items: start; }
+        .about-label { color: #d49b2c; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        .about-copy h1 { margin: 10px 0 20px; font-family: 'Playfair Display', serif; font-size: clamp(2.3rem, 4vw, 3.5rem); line-height: 1.08; }
+        .about-copy .about-description { margin: 0; max-width: none; text-align: left; color: var(--muted); font-size: 1rem; }
+        .about-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
+        .value-item { padding: 22px; border-left: 3px solid var(--gold); background: #f8faf8; }
+        .value-item h3 { margin: 0 0 8px; color: var(--ink); font-size: .95rem; }
+        .value-item p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
+        .about-panel { position: relative; padding: 34px; border-radius: 8px; background: var(--blue); color: #fff; overflow: hidden; }
+        .about-panel::after { content: ''; position: absolute; right: -80px; top: -80px; width: 220px; height: 220px; border: 1px solid rgba(246, 196, 83, .5); border-radius: 50%; box-shadow: 0 0 0 22px rgba(246, 196, 83, .06); }
+        .about-panel h2 { position: relative; z-index: 1; margin: 0 0 24px; text-align: left; color: #fff; font-size: 1.25rem; }
+        .about-panel p { position: relative; z-index: 1; color: rgba(255, 255, 255, .78); font-size: .9rem; line-height: 1.7; }
+        .about-metrics { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 30px; }
+        .about-metric strong { display: block; color: var(--gold); font-size: 1.8rem; }
+        .about-metric span { color: rgba(255, 255, 255, .7); font-size: .75rem; }
+        .section-heading { margin-bottom: 38px; }
+        .feature-card { height: 100%; padding: 30px; border: 1px solid #e4e9ec; border-radius: 8px; background: linear-gradient(145deg, #fff, #f8faf8); box-shadow: 0 12px 28px rgba(16, 43, 78, .05); transition: transform .25s ease, box-shadow .25s ease; }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(16, 43, 78, .12); }
+        .feature-icon { color: #d49b2c; font-size: 1.5rem; margin-bottom: 18px; }
+        .feature-card h3, .portfolio-heading { color: var(--ink); }
+        .feature-card p { color: var(--muted); line-height: 1.65; }
+        .portfolio-shell { border-top: 1px solid #dfe3e8; background: #f8faf8; }
+        .portfolio-heading { font-size: 1.45rem; margin-bottom: 16px; }
+        .portfolio-shortcode { color: var(--blue); font-size: .72rem; line-height: 1.7; }
+        .portfolio-2025 { padding-top: 0; }
+        .portfolio-2013-image { display: block; width: min(100%, 478px); height: auto; margin: 0 auto; border: 8px solid #fff; border-radius: 8px; box-shadow: 0 18px 36px rgba(16, 43, 78, .14); }
+        .portfolio-2025-image { display: block; width: min(100%, 478px); height: auto; margin: 0 auto; border: 8px solid #fff; border-radius: 8px; box-shadow: 0 18px 36px rgba(16, 43, 78, .14); }
+        .contact-center { max-width: 620px; margin: 0 auto 36px; padding: 28px; text-align: center; line-height: 1.8; border: 1px solid #e4e9ec; border-radius: 8px; background: #f8faf8; }
+        .contact-form { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid #e4e9ec; border-radius: 8px; background: #fff; box-shadow: 0 14px 34px rgba(16, 43, 78, .06); }
+        .contact-form label { display: block; font-size: .8rem; font-weight: 600; margin: 0 0 8px; }
+        .form-control { border-radius: 0; background: #f9f9f9; }
+        .input-row { display: flex; gap: 14px; margin-bottom: 16px; }
+        .input-row .field { flex: 1; }
+        .checkbox-row { display: flex; align-items: center; gap: 8px; margin: 14px 0 18px; color: var(--muted); font-size: .82rem; }
+        .btn-submit { background: #0d6efd; color: #fff; border: 0; border-radius: 4px; padding: 11px 18px; }
+        .comment-thread { margin-top: 42px; }
+        .comment-list { border-top: 1px solid #dfe5eb; }
+        .comment-item { display: flex; gap: 16px; padding: 22px 0 18px; border-bottom: 1px solid #e7ebf0; }
+        .comment-avatar { width: 42px; height: 42px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #dfe5ec; color: #6d7d90; font-weight: 700; }
+        .comment-meta { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+        .comment-author { color: var(--ink); font-weight: 600; }
+        .comment-date { color: #77849a; font-size: .9rem; }
+        .comment-body { color: #2d3f52; line-height: 1.8; }
+        .comment-reply-link { color: #0d6efd; text-decoration: none; }
+        footer { margin-top: 64px; padding: 30px 0; background: var(--ink); color: #c8d2dc; }
+        @media (max-width: 767px) { .navbar { min-height: 70px; } .navbar .nav-link { width: 100%; min-height: 40px; padding: 10px 12px !important; } .nav-contact { margin: 8px 0 !important; justify-content: center; } .home-hero { min-height: 650px; } .home-hero::after { right: -220px; bottom: -170px; } .hero-copy { padding: 68px 0 170px; } .hero-copy h1 { font-size: 2.75rem; } .hero-stats { right: auto; left: 0; bottom: 34px; gap: 20px; } .hero-stat strong { font-size: 1.2rem; } .background-copy { padding: 36px 0 0 20px; } .about-page, .portfolio-shell, .contact-page { padding: 54px 0; } .about-intro { display: block; } .about-panel { margin-top: 34px; } .about-values { grid-template-columns: 1fr; } .input-row { display: block; } .input-row .field { margin-bottom: 14px; } .contact-form { padding: 22px; } .comment-meta { display: block; } .comment-date { display: block; margin-top: 6px; } }
+        @media (max-width: 767px) { .section-topline { display: block; } .section-link { display: inline-block; margin-top: 12px; } .experience-badge { margin: 28px 0 0; } }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light sticky-top"><div class="container"><a class="navbar-brand" href="index.html"><img src="img/logo/pygmatour-logo.svg" alt="Pygmatour"><span class="brand-lockup">Pygmatour</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="mainNav"><ul class="navbar-nav align-items-lg-center"><li class="nav-item"><a class="nav-link" href="#about">About Us</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="#clients">Our Clients</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#portfolio" data-bs-toggle="dropdown">Portfolio</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="#tour-2013">Tour 2013</a></li><li><a class="dropdown-item" href="#tour-2025">Tour 2025</a></li></ul></li><li class="nav-item"><a class="nav-link nav-contact" href="#contact">Start a conversation</a></li></ul></div></div></nav>
+<main>
+<section class="home-intro"><div class="home-hero"><div class="container"><div class="hero-copy"><div class="kicker">Incentive Tour Specialist</div><h1>Make every journey worth remembering.</h1><p>Thoughtful travel experiences for teams, companies, and curious explorers, planned with local insight and delivered with care.</p><div class="hero-actions"><a class="action-primary" href="#portfolio">Explore our journeys</a><a class="action-secondary" href="#contact">Plan a trip</a></div></div><div class="hero-stats"><div class="hero-stat"><strong>2012</strong><span>Established</span></div><div class="hero-stat"><strong>30+</strong><span>Destinations</span></div><div class="hero-stat"><strong>360°</strong><span>Travel support</span></div></div></div></div><div class="container"><div class="background-copy"><h2>Our Background</h2><h3>PYGMATOUR</h3><p>Founded in October 2012, Pygmatour is an Incentive Tour Operating Company offering personalized service and worldwide trip planning. Since 2017, we also provide travel consulting for corporate and individual needs.</p></div></div></section>
+
+<section class="journey-section"><div class="container"><div class="section-topline"><div><div class="section-eyebrow">Start exploring</div><h2>Travel that fits your story.</h2></div><a class="section-link" href="#portfolio">View all journeys <i class="fa-solid fa-arrow-right"></i></a></div><div class="row g-4"><div class="col-md-4"><a class="destination-card d-block text-decoration-none" href="#tour-2025"><img src="img/portfolio/tour-2025.png" alt="Australia group tour"><div class="destination-copy"><h3>Australia</h3><span>Group experiences · 2025</span></div></a></div><div class="col-md-4"><a class="destination-card d-block text-decoration-none" href="#about"><img src="img/home/home.png" alt="Pygmatour destination"><div class="destination-copy"><h3>Worldwide journeys</h3><span>Designed around your team</span></div></a></div><div class="col-md-4"><div class="destination-card"><img src="img/home/home.png" alt="Tailored travel planning"><div class="destination-copy"><h3>Made for groups</h3><span>Thoughtful planning · seamless delivery</span></div></div></div></div></div></section>
+
+<section class="experience-strip"><div class="container"><div class="row align-items-center"><div class="col-md-8"><h2>More than a destination. A shared experience.</h2><p>We bring people together through well-planned travel, meaningful moments, and service that stays one step ahead.</p></div><div class="col-md-4"><div class="experience-badge">PLAN<br>YOUR<br>JOURNEY</div></div></div></div></section>
+<section id="about" class="about-page"><div class="container"><div class="about-intro"><div class="about-copy"><div class="section-intro"><div class="section-eyebrow">Who we are</div><h1>Journeys designed around people.</h1><p><strong>PYGMATOUR</strong> is an incentive tour specialist from Indonesia. We create thoughtful company trips, team building experiences, thematic gala dinners, student study tours, and meaningful events around the world.</p></div><div class="about-values"><div class="value-item"><h3>Our vision</h3><p>To become every client's trusted travel partner.</p></div><div class="value-item"><h3>Our mission</h3><p>To deliver thoughtful products with professionalism and integrity.</p></div></div></div><div class="about-panel"><h2>Travel, thoughtfully delivered.</h2><p>From the first idea to the final goodbye, our experienced team takes care of the details that turn a trip into a shared memory.</p><div class="about-metrics"><div class="about-metric"><strong>2012</strong><span>Founded in Indonesia</span></div><div class="about-metric"><strong>360°</strong><span>Support from start to finish</span></div></div></div></div></div></section>
+<section id="clients" class="services"><div class="container"><div class="section-intro centered"><div class="section-eyebrow">The Pygmatour difference</div><h2>Why choose us</h2><p>Every detail is shaped around your people, your purpose, and the moments you want them to remember.</p></div><div class="row g-4"><div class="col-md-4"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-route"></i></div><h3>Customized Planning</h3><p>Every itinerary is crafted around your goals, audience, and destination.</p></div></div><div class="col-md-4"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-users"></i></div><h3>Team Coordination</h3><p>We manage logistics, schedules, and stakeholder needs with care.</p></div></div><div class="col-md-4"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-medal"></i></div><h3>Premium Service</h3><p>Memorable experiences delivered with professionalism and integrity.</p></div></div></div></div></section>
+<section id="portfolio" class="portfolio-shell"><div class="container"><div class="section-intro"><div class="section-eyebrow">Selected journeys</div><h2>Portfolio</h2><p>Snapshots from the experiences we have created with our clients.</p></div><h1 class="portfolio-heading" id="tour-2013">Tour 2013</h1><img src="img/portfolio/tour-2013.png" class="portfolio-2013-image" alt="Pygmatour Tour 2013 in London"></div></section>
+<section id="tour-2025" class="portfolio-shell portfolio-2025"><div class="container"><h1 class="portfolio-heading">Tour 2025</h1><img src="img/portfolio/tour-2025.png" class="portfolio-2025-image" alt="Pygmatour Tour 2025 in Australia"></div></section>
+<section id="contact" class="contact-page"><div class="container"><div class="section-intro centered"><div class="section-eyebrow">Let us plan your next chapter</div><h1>Contact Us</h1><p>Tell us where you want to go and we will help turn the idea into a seamless journey.</p></div><div class="contact-center"><p><em>We'd love to meet you in person or via the web!</em></p><strong>PT. ENAM DUNIA WISATA</strong><br>Jl. Bandung Selatan No.43, Jakarta Utara, Indonesia<br>Phone: +62 21 6667 0688<br>Email: <a href="mailto:info@pygmatour.com">info@pygmatour.com</a></div><div class="contact-form"><h3>Leave a Reply</h3><p>Your email address will not be published. Required fields are marked *</p><form id="commentForm"><div class="mb-3"><label for="message">Comment *</label><textarea id="message" name="message" class="form-control" rows="6" required></textarea></div><div class="input-row"><div class="field"><label for="name">Name *</label><input id="name" name="name" class="form-control" required></div><div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" class="form-control" required></div><div class="field"><label for="website">Website</label><input id="website" name="website" class="form-control"></div></div><div id="replyNotice" class="reply-box" hidden></div><label class="checkbox-row"><input type="checkbox" name="save_info">Save my name, email, and website in this browser.</label><button class="btn-submit" type="submit">Post Comment</button><p id="commentStatus" role="status"></p></form><div id="commentThread" class="comment-thread"></div></div></div></section>
+</main>
+<footer class="text-center"><div class="container"><p class="mb-0">&copy; 2026 Pygmatour</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function () {
+        var storageKey = 'pygmatour-comments';
+        var comments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        var form = document.getElementById('commentForm');
+        var thread = document.getElementById('commentThread');
+        var status = document.getElementById('commentStatus');
+        var replyNotice = document.getElementById('replyNotice');
+        var replyId = null;
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>'"]/g, function (character) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[character];
+            });
+        }
+
+        function renderComments() {
+            var roots = comments.filter(function (comment) { return !comment.parentId; });
+            thread.innerHTML = '<h3>' + comments.length + ' thought' + (comments.length === 1 ? '' : 's') + ' on "Home"</h3>' +
+                '<div class="comment-list">' + roots.map(renderComment).join('') + '</div>';
+        }
+
+        function renderComment(comment) {
+            var children = comments.filter(function (item) { return item.parentId === comment.id; });
+            var replies = children.map(function (reply) { return renderComment(reply).replace('comment-item', 'comment-item comment-item-reply'); }).join('');
+            return '<div class="comment-item"><div class="comment-avatar">' + escapeHtml(comment.name.charAt(0).toUpperCase()) + '</div>' +
+                '<div class="comment-content"><div class="comment-meta"><strong class="comment-author">' + escapeHtml(comment.name) + '</strong>' +
+                '<span class="comment-date">' + escapeHtml(comment.date) + '</span></div><a href="#contact" class="comment-reply-link" data-reply="' + comment.id + '">Reply</a>' +
+                '<div class="comment-body">' + escapeHtml(comment.message).replace(/\n/g, '<br>') + '</div>' + replies + '</div></div>';
+        }
+
+        function setReply(id) {
+            var target = comments.find(function (comment) { return comment.id === id; });
+            replyId = target ? id : null;
+            replyNotice.hidden = !target;
+            replyNotice.innerHTML = target ? '<strong>Reply to ' + escapeHtml(target.name) + '</strong><a href="#contact" class="cancel-reply" id="cancelReply">Cancel reply</a>' : '';
+        }
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var data = new FormData(form);
+            var name = data.get('name').trim();
+            var message = data.get('message').trim();
+            if (!name || !data.get('email').trim() || !message) {
+                status.textContent = 'Please fill in your name, email, and comment.';
+                status.className = 'status-error';
+                return;
+            }
+            comments.unshift({ id: Date.now(), name: name, message: message, date: new Date().toLocaleString(), parentId: replyId });
+            localStorage.setItem(storageKey, JSON.stringify(comments));
+            form.reset();
+            setReply(null);
+            status.textContent = 'Your comment has been posted.';
+            status.className = 'text-success mt-3';
+            renderComments();
+        });
+
+        document.addEventListener('click', function (event) {
+            if (event.target.matches('[data-reply]')) setReply(Number(event.target.dataset.reply));
+            if (event.target.id === 'cancelReply') setReply(null);
+        });
+
+        renderComments();
+    }());
+</script>
+</body>
+</html>
